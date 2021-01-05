@@ -19,11 +19,12 @@ func TestSlidingWindow(t *testing.T) {
 		}
 		time.Sleep(time.Duration(rand.Intn(20)) * time.Millisecond)
 	}
-	for _,item := range sw.Data(5) {
+	t.Log("1秒的bucket长度",sw.Len())
+	for _,item := range sw.Data(3) {
 		t.Log(item.success,item.fail)
 	}
 	t.Log("==============")
-	for _,item := range sw.Data(10) {
+	for _,item := range sw.Data(5) {
 		t.Log(item.success,item.fail)
 	}
 }
